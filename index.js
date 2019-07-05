@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 require("dotenv").config();
+const bodyParser = require("body-parser");
 
 //import Routes
 const authRoute = require("./routes/auth");
@@ -12,7 +13,7 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () =>
 );
 
 //Middleware
-app.use(express.json());
+app.use(bodyParser.json());
 
 //Route Middleware
 app.use("/api/user", authRoute);
