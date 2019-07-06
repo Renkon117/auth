@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const bodyParser = require("body-parser");
 
+const postRoute = require("./routes/posts");
+
 //import Routes
 const authRoute = require("./routes/auth");
 
@@ -17,5 +19,6 @@ app.use(bodyParser.json());
 
 //Route Middleware
 app.use("/api/user", authRoute);
+app.use("/api/posts", postRoute);
 
 app.listen(4000, () => console.log("Server up and running"));
