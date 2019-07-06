@@ -21,4 +21,6 @@ app.use(bodyParser.json());
 app.use("/api/user", authRoute);
 app.use("/api/posts", postRoute);
 
-app.listen(4000, () => console.log("Server up and running"));
+const PORT = process.env.PORT || 4000;
+
+app.listen(PORT, () => console.log("Server up and running" + PORT));
